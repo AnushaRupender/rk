@@ -1,0 +1,24 @@
+<br>
+<h5>Work sheet<button class="btn btn-theme flt-rt">Search</button></h5>
+<div class="row heading data-row">
+	<div class="col-md-3">Comapny Name</div>
+	<div class="col-md-2">Phone Number</div>
+	<div class="col-md-3">Feedback</div>
+	<div class="col-md-2">Other comments</div>
+	<div class="col-md-2">Actions</div>
+</div>
+<div class="row data-row" *ngFor="let record of data" [ngClass]="{'prior':record.prior==1,'danger':record.prior==-1}">
+	<div class="col-md-3">{{record.companyName}}</div>
+	<div class="col-md-2">{{record.phoneNumber}}</div>
+	<div class="col-md-3">{{record.description}}</div>
+	<div class="col-md-2">{{record.otherInfo}}</div>
+	<div class="col-md-2 action-items">
+		<fa-icon [icon]="faStar" title="Set it as Priority" (click)="prioritiseRecord(record, 1)"></fa-icon>
+		<fa-icon [icon]="faBan" title="Never call" (click)="prioritiseRecord(record, -1)"></fa-icon>
+		<fa-icon [icon]="faThumbsDown" title="Not Interested" (click)="prioritiseRecord(record, 0)"></fa-icon>
+		<fa-icon [icon]="faEdit" title="Edit details" (click)="editRecord(record)"></fa-icon>
+		<fa-icon [icon]="faTrash" title="Delete details" (click)="removeRecord(record)"></fa-icon>		
+		<fa-icon [icon]="faBell" title="Notify" (click)="createNotifyToRecord(record)"></fa-icon>		
+	</div>
+</div>
+<edit-details [originalRecord]="selectedRecord" (updated)="updateRecord($event)"></edit-details>

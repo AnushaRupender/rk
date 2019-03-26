@@ -1,0 +1,13 @@
+<h3>Notification List -- {{notificationsToDisplay.length}}</h3>
+<div class="form-div">
+	<label>Search</label>
+	<input type="text" name="notificationTitle" placeholder="Notification Title" [(ngModel)]="notificationTitle" required="true" minlength="3" (keyup)="searchChanged()">
+	<fa-icon [icon]="faArrowUp" (click)="order = !order" *ngIf="order"></fa-icon>
+	<fa-icon [icon]="faArrowDown" (click)="order = !order" *ngIf="!order"></fa-icon>
+</div>
+<div *ngIf="notificationsToDisplay.length>0">
+	<notification [notification]="notification" *ngFor="let notification of notificationsToDisplay.slice(0,noOfNotificationsToList)"></notification>
+</div>
+<div class="greetings" *ngIf="notificationsToDisplay.length==0">
+	Today there are not notifications to follow up. Have a great day!!!!
+</div>

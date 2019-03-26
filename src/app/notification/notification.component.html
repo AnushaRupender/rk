@@ -1,0 +1,19 @@
+<div class="notification-container row">
+	<div class="col-md-11">
+		<div class="notification-name" (click)="goto('customer-details')">{{notification.name}}</div>
+		<div class="notification-description">{{notification.summary}}</div>
+	</div>
+	<div class="col-md-1">
+		<div class="notification-action">
+			<div class="icon-container">
+				<fa-icon [icon]="faPhone"></fa-icon><span class="cust-tooltip">{{notification.number}}</span>
+			</div>
+			<div class="icon-container">
+				<fa-icon [icon]="faCheck"></fa-icon><span class="cust-tooltip">Notify Done</span>
+			</div>
+			<div class="icon-container">
+				<fa-icon [icon]="faTrash"></fa-icon><span class="cust-tooltip">Delete Notify</span>
+			</div>			
+		</div>
+	</div>	
+</div>

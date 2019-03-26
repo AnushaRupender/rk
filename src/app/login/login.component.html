@@ -1,0 +1,31 @@
+<div class="login-container">
+	<div class="title">Login to your portal</div>
+	<form class="login-content" #formData="ngForm" autocomplete="off">
+		<div class="form-div">
+			<label>User Name</label>
+			<input type="text" name="userName" placeholder="User Name" [(ngModel)]="userName" required="true" minlength="3">
+			<div *ngIf="formData.controls?.userName?.dirty && formData.controls?.userName?.errors?.required" class="error">Name is manditory</div>
+			<div *ngIf="formData.controls?.userName?.dirty && formData.controls?.userName?.errors?.minlength" class="error">Name should be minimum {{formData.controls?.userName?.errors.minlength.requiredLength}} letters</div>
+		</div>
+		<div class="form-div">
+			<label>Password</label>
+			<input type="password" name="password" placeholder="Password" [(ngModel)]="password" required="true" minlength="5">
+			<div *ngIf="formData.controls?.password?.dirty && formData.controls?.password?.errors?.required" class="error">Password is manditory</div>
+			<div *ngIf="formData.controls?.password?.dirty && formData.controls?.password?.errors?.minlength" class="error">Password should be minimum {{formData.controls?.password?.errors.minlength.requiredLength}} letters</div>
+		</div>
+		<div class="form-div">
+			<label>Login Mode</label>
+			<select [(ngModel)]="userType" name="userType" required="true">
+				<option></option>
+				<option *ngFor="let user of users">{{user.name}}</option>
+			</select>
+			<div *ngIf="formData.controls?.userType?.dirty && formData.controls?.userType?.errors?.required" class="error">Please select login mode</div>
+		</div>
+		<div class="form-div mt-20">
+			<button class="btn btn-theme" (click)="logIn()" [ngClass]="{'disabled': !formData.valid}">Log In</button>
+		</div>
+	</form>
+	<div class="login-footer">
+		Contact you Admin/Team lead if you are facing any issue with Login
+	</div>
+</div>

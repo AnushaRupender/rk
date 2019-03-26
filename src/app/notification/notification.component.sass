@@ -1,0 +1,51 @@
+.notification-container
+	padding: 5px 0
+	border-radius: 5px
+	margin: 10px 0
+	border: 1px solid #00046A
+	min-height: 85px;
+	&:hover
+		background: #eee
+	.notification-name
+		font-size: 16px;
+		font-weight: 600;
+		cursor: pointer;
+	.notification-description
+		font-size: 14px;
+	.notification-action
+		position: relative;
+		.icon-container
+			position: relative;
+			height: 25px;
+			&:hover .ng-fa-icon
+				position: absolute;
+				right: 0;
+				width: 100px;
+				border-radius: 50px;
+				text-align: left;
+				cursor: pointer;
+			&:hover .cust-tooltip
+				opacity: 1;
+			.ng-fa-icon
+				background: #69d7a1;
+				color: #fff;
+				border-radius: 50%;
+				padding: 4px;
+				font-size: 12px;
+				cursor: pointer;
+				width: 40px;
+				-webkit-transition: width 1s; /* For Safari 3.1 to 6.0 */
+				transition: width 1s;				
+			.cust-tooltip
+				opacity: 0;
+				position: absolute;
+				right: 10px;
+				top: 5px;
+				color: #fff;
+				font-size: 12px;
+				-webkit-transition: opacity 1s; /* For Safari 3.1 to 6.0 */
+				transition: opacity 1s;
+				white-space: nowrap;
+
+			
+    

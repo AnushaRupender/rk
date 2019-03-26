@@ -1,0 +1,14 @@
+<div class="header-container">
+	<div class="header-text">
+		<span (click)="gotoPath('home')">Header Content</span>
+	</div>
+	<div class="right-content" *ngIf="!loggeIn">
+		<a href="#footer">Customer Support</a>
+		<button class="btn" (click)="gotoPath('login')">LogIn</button>
+	</div>
+	<div class="right-content" *ngIf="loggeIn">
+		<a href="#footer">Hi {{userName}}</a>
+		<button class="btn" (click)="logOut()">LogOut</button>
+	</div>
+</div>
+<navbar *ngIf="loggeIn" (gotoPath)="gotoPath($event)"></navbar>

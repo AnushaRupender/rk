@@ -1,0 +1,23 @@
+<h4 style=" margin-top: 20px; ">Add company details</h4>
+<form class="col-md-6	no-padding" #formData="ngForm" autocomplete="off">
+	<div class="form-div">
+		<label>Company Name</label>
+		<input type="text" name="companyName" placeholder="Company Name" [(ngModel)]="company.companyName" required="true" minlength="3">
+		<div *ngIf="formSumbit && formData.controls?.companyName?.errors?.required" class="error">Company Name is manditory</div>
+		<div *ngIf="formSumbit && formData.controls?.companyName?.errors?.minlength" class="error">Company Name should be minimum {{formData.controls?.companyName?.errors.minlength.requiredLength}} letters</div>
+	</div>
+	<div class="form-div">
+		<label>Phone Number</label>
+		<input type="number" name="phoneNumber" placeholder="Phone Number" [(ngModel)]="company.phoneNumber" required="true" minlength="10">
+		<div *ngIf="formSumbit && formData.controls?.phoneNumber?.errors?.required" class="error">Phone Number is manditory</div>
+		<div *ngIf="formSumbit && formData.controls?.phoneNumber?.errors?.minlength" class="error">Phone Number should have minimum {{formData.controls?.phoneNumber?.errors.minlength.requiredLength}} digits</div>
+	</div>
+	<div class="form-div">
+		<label>Description</label>
+		<textarea [(ngModel)]="company.description" name= "description" placeholder="Add Description"></textarea>
+		<div *ngIf="formSumbit && formData.controls?.description?.errors?.required" class="error">Please select login mode</div>
+	</div>
+	<div class="form-div mt-20">
+		<button class="btn btn-theme" (click)="addRow()">Add</button>
+	</div>
+</form>
