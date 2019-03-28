@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddDataFormComponent } from './add-data-form.component';
+import { CompanyRecord } from '../company-record';
+import { CompanyListService } from '../company-list.service'
 
 describe('AddDataFormComponent', () => {
   let component: AddDataFormComponent;
@@ -12,7 +14,7 @@ describe('AddDataFormComponent', () => {
     })
     .compileComponents();
   }));
-
+  
   beforeEach(() => {
     fixture = TestBed.createComponent(AddDataFormComponent);
     component = fixture.componentInstance;
@@ -20,6 +22,7 @@ describe('AddDataFormComponent', () => {
   });
 
   it('should create', () => {
+    console.log(component)
     expect(component).toBeTruthy();
   });
 });

@@ -10,10 +10,10 @@ export class EditDetailsComponent implements OnInit {
   @Input() originalRecord:CompanyRecord;
   @Output() updated = new EventEmitter<object>();
   showEditPopUp = false;
+  record = new CompanyRecord({});
   constructor() { }
 
   ngOnInit() {
-  	this.record = new CompanyRecord({});
   }
   saveData() {
     this.showEditPopUp = false;

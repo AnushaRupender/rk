@@ -1,3 +1,50 @@
-<p>
-  notify-pop-up works!
-</p>
+<div class="modal fade in" role="dialog" id="editCompanyModal" style="display: block;opacity: 1">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+      	<h4 class="modal-title">Add/Edit Notification detail</h4>
+        <button type="button" class="close" data-dismiss="modal" (click)="closePopUp()">&times;</button>        
+      </div>
+      <div class="modal-body">
+      	<form class="no-padding" #formData="ngForm" autocomplete="off" name="anusha">
+			<div class="form-div">
+				<label>Notification Title</label>
+				<input type="text" name="name" placeholder="Company Name" [(ngModel)]="record.name" required="true" minlength="3">
+				<div *ngIf="formData.controls?.name?.dirty && formData.controls?.name?.errors?.required" class="error">Company Name is manditory</div>
+				<div *ngIf="formData.controls?.name?.dirty && formData.controls?.name?.errors?.minlength" class="error">Company Name should be minimum {{formData.controls?.name?.errors.minlength.requiredLength}} letters</div>
+			</div>
+			<div class="form-div">
+				<label>Phone Number</label>
+				<input type="text" name="number" placeholder="Phone Number" [(ngModel)]="record.number" required="true" minlength="10">
+				<div *ngIf="formData.controls?.number?.dirty && formData.controls?.number?.errors?.required" class="error">Phone Number is manditory</div>
+				<div *ngIf="formData.controls?.number?.dirty && formData.controls?.number?.errors?.minlength" class="error">Phone Number should have minimum {{formData.controls?.number?.errors.minlength.requiredLength}} digits</div>
+			</div>
+			<div class="form-div">
+				<label>Notification Title</label>
+				<input type="text" name="custId" placeholder="Company Name" [(ngModel)]="record.custId" required="true" minlength="3">
+				<div *ngIf="formData.controls?.custId?.dirty && formData.controls?.custId?.errors?.required" class="error">Company Name is manditory</div>
+				<div *ngIf="formData.controls?.custId?.dirty && formData.controls?.custId?.errors?.minlength" class="error">Company Name should be minimum {{formData.controls?.custId?.errors.minlength.requiredLength}} letters</div>
+			</div>
+			<div class="form-div">
+				<label>Phone Number</label>
+				<input type="text" name="status" placeholder="Phone Number" [(ngModel)]="record.status" required="true" minlength="10">
+				<div *ngIf="formData.controls?.status?.dirty && formData.controls?.status?.errors?.required" class="error">Phone Number is manditory</div>
+				<div *ngIf="formData.controls?.status?.dirty && formData.controls?.status?.errors?.minlength" class="error">Phone Number should have minimum {{formData.controls?.status?.errors.minlength.requiredLength}} digits</div>
+			</div>
+			<div class="form-div">
+				<label>Description</label>
+				<textarea [(ngModel)]="record.summary" name= "summary" placeholder="Add Description"></textarea>
+				<div *ngIf="formData.controls?.summary?.dirty && formData.controls?.summary?.errors?.required" class="error">Please select login mode</div>
+			</div>
+		</form>
+      </div>
+      <div class="modal-footer">
+      	<button class="btn btn-theme" (click)="saveNotification(formData)">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="closePopUp()">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

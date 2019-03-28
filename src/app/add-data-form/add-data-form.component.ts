@@ -10,7 +10,8 @@ import { CompanyListService } from '../company-list.service'
 })
 export class AddDataFormComponent implements OnInit {
   @Output() addData = new EventEmitter();
-  company = CompanyRecord;
+  company = new CompanyRecord({});
+  formSumbit = false;
 
   constructor(private companyList: CompanyListService) { }
 

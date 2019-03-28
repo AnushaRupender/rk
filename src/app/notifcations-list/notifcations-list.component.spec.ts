@@ -20,6 +20,7 @@ describe('NotifcationsListComponent', () => {
   });
 
   it('should create', () => {
+    console.log("Tried some thing")
     expect(component).toBeTruthy();
   });
 });

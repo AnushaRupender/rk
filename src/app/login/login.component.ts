@@ -20,10 +20,9 @@ export class LoginComponent implements OnInit {
   logIn() {
   	let success = true;
   	if(success) {
-  		this.router.navigate(["/dashboard"]);
   		this.cookieService.set('userName', this.userName);
   		this.cookieService.set('usetType', this.userType);
-  		window.location.reload();
+      this.router.navigate(["/dashboard"]);
   	}
   }
 }

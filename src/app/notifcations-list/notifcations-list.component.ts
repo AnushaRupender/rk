@@ -13,24 +13,26 @@ export class NotifcationsListComponent implements OnInit {
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
   lastScrollValue = 0;  
-  notificationsToDisplay = [];
+  notificationsToDisplay;
   noOfNotificationsToList = 5;
   notificationPerPage = 5;
   notificationTitle = '';
-  originalNotificationData = [];
+  originalNotificationData;
 
   constructor(private notificationListService:NotificationServiceService) { }
   
   ngOnInit() {
-    this.originalNotificationData = this.notificationListService.NotificationList;
-    this.notificationsToDisplay = this.notificationListService.NotificationList;
+    this.notificationListService.NotificationList.subscribe(data => {
+      this.originalNotificationData = data.data;
+      this.notificationsToDisplay = data.data;
+    });
+    
   	window.addEventListener('scroll', event => {
       let documentElement = document.documentElement
       let docBody = document.body
       let scrollTop = 'scrollTop'
       let scrollHeight = 'scrollHeight'
       let scrollPercent = (documentElement[scrollTop] || docBody[scrollTop]) / ((documentElement[scrollHeight] || docBody[scrollHeight]) - documentElement.clientHeight) * 100
-      console.log(scrollPercent)
       if (scrollPercent > 70) {
         if (window.pageYOffset > this.lastScrollValue) {
           if (this.notificationsToDisplay && this.notificationsToDisplay.length > this.noOfNotificationsToList) {

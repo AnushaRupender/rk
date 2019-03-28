@@ -15,7 +15,8 @@ export class MisComponent implements OnInit {
   faBan= faBan;
   faBell= faBell;
   faThumbsDown= faThumbsDown;
-  selectedRecord:CompanyListService;
+  selectedRecord= new CompanyRecord({});
+  data= [];
   constructor(private companyList: CompanyListService) { }
 
   ngOnInit() {
@@ -33,6 +34,6 @@ export class MisComponent implements OnInit {
   updateRecord(emitterdObject) {
     if(emitterdObject.update)
       this.companyList.updateCompany(this.selectedRecord,emitterdObject.company);
-    this.selectedRecord = {};
+    this.selectedRecord = new CompanyRecord({});
   }
 }

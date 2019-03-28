@@ -5,13 +5,15 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DaySheetComponent } from './day-sheet/day-sheet.component';
 import { MisComponent } from './mis/mis.component';
+import { NotificationPageComponent } from './notification-page/notification-page.component';
 
 const routes: Routes = [{ path: '', redirectTo: '/home', pathMatch: 'full' },
 						{ path: 'home', component: HomeComponent},
 						{ path: 'login', component: LoginComponent},
 						{ path: 'dashboard', component: DashboardComponent},
 						{ path: 'today', component: DaySheetComponent},
-						{ path: 'myData', component: MisComponent}];
+						{ path: 'myData', component: MisComponent},
+						{ path: 'notification', component: NotificationPageComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

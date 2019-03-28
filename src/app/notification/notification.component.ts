@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { faPhone, faTrash, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faTrash, faCommentDots } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'notification',
@@ -10,7 +10,7 @@ export class NotificationComponent implements OnInit {
   @Input('notification') notification;
   faPhone = faPhone;
   faTrash = faTrash;
-  faCheck = faCheck;
+  faCommentDots = faCommentDots;
   constructor() { }
 
   ngOnInit() {

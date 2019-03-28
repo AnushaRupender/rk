@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router';
+import {Router, NavigationStart} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,11 @@ import {Router} from '@angular/router';
 })
 export class AppComponent {
 	constructor(private router: Router){
-		console.log(this.router)
+		router.events.subscribe(event => {
+		    if(event instanceof NavigationStart) {
+		    	console.log(event);
+		    }
+		})
 	}
 	goto(path,pathParam){
 		this.router.navigate(['/'+path]);

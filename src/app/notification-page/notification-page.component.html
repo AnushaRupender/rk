@@ -1,0 +1,5 @@
+<div class="notification-page-container">
+	<button class="btn btn-theme flt-rt" (click)="showNotificationPopUp= true">Add Notification</button>
+	<notifcations-list></notifcations-list>	
+	<notify-pop-up *ngIf="showNotificationPopUp"></notify-pop-up>
+</div>
